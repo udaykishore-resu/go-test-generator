@@ -1,104 +1,37 @@
-# Go Test Generator - Project Description
-## Overview
-The Go Test Generator is a comprehensive web-based tool designed to help Go developers quickly create various types of tests for their Go code. This application provides an intuitive interface for generating unit tests, integration tests, REST API tests, gRPC tests, and GraphQL tests without leaving the browser.
+# Go Test Generator
 
-## Key Features
-Project Navigation: Simulated file browser for selecting Go projects and detecting packages
+A web-based tool that helps Go developers scaffold tests for their code. Pick a project and package, select a function, choose a test type, and it generates a starting test template you can copy out.
 
-**Package Selection:** Dropdown to choose from available packages in a project
+## Key features
 
-**Function Selection:** Dynamic function listing based on selected package
+Simulated project/package/function navigation for picking what to generate a test for. Supports five test types: unit tests (with mocks), integration tests (with real dependencies), REST API tests, gRPC tests, and GraphQL tests. Paste Go source code directly into the app, generate a test in real time, and copy the result with one click. Responsive layout that works on desktop and mobile.
 
-**Multiple Test Types:**
-Support for generating:
+## User workflow
 
-Unit Tests (with mocks)
+Select a project directory (simulated), choose a package from the detected packages, pick a function from that package, choose a test type, paste or edit the Go source in the code area, click Generate Test, then Copy Code to grab the result.
 
-Integration Tests (with real dependencies)
+## Tech stack
 
-REST API Tests (HTTP endpoint testing)
+React 18 and TypeScript, built with Vite, UI components from shadcn-ui and Radix, Tailwind CSS.
 
-gRPC Tests (gRPC service testing)
+## Running locally
 
-GraphQL Tests (GraphQL resolver testing)
-
-**Code Input:** Text area for pasting Go source code
-
-**Test Generation:** Real-time test generation based on selected options
-
-**Copy Functionality:** One-click copy for generated tests
-
-**Responsive Design:** Works on desktop and mobile devices
-
-## Technical Architecture
-Frontend Components
-HTML5: Semantic structure with clean, accessible markup
-
-CSS3: Modern styling with Flexbox/Grid layout, gradients, and animations
-
-JavaScript: ES6+ for dynamic functionality and test generation
-
-Font Awesome: For consistent iconography
-
-## Key Technical Elements
-Dynamic UI Updates: JavaScript functions that update the interface based on user selections
-
-Test Generation Engine: Algorithms that create appropriate test templates based on code input and selected test type
-
-Clipboard API: For copying generated tests to clipboard
-
-Responsive Design: Media queries and flexible layouts for all screen sizes
-
-Notification System: User feedback for actions like copying code or generating tests
-
-## User Workflow
-User selects a project directory (simulated)
-
-Chooses a package from the detected packages
-
-Selects a function from the available functions in that package
-
-Chooses a test type (Unit, Integration, REST, gRPC, or GraphQL)
-
-Pastes or edits Go code in the source code area
-
-Clicks "Generate Test" to create the test code
-
-Uses "Copy Code" to copy the generated test to clipboard
-
-## Potential Enhancements
-For a production version, you might consider:
-
-Backend Integration: A Go service that actually parses code and generates more accurate tests
-
-User Authentication: To save and manage test templates
-
-Project History: To remember previously generated tests
-
-Export Options: To download tests as files
-
-Test Customization: Options to customize test patterns and assertions
-
-Real File System Access: Using technologies like Electron for desktop deployment
-
-
-
-# Follow these steps:
-
-```sh
-# Step 1: Install the necessary dependencies.
-npm i
-
-# Step 2: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone <this-repo-url>
+cd go-test-generator
+npm install
 npm run dev
 ```
 
-## What technologies are used for this project?
+Then open the local dev server URL printed in your terminal.
 
-This project is built with:
+## Build
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+npm run build
+npm run preview
+```
+
+## Where this could go next
+
+Right now test generation runs entirely in the browser against templates. A real backend that actually parses Go source (rather than templating off the pasted text) would make the generated tests more accurate, and would open the door to saving/reusing templates, exporting generated tests as files, and remembering generation history.
